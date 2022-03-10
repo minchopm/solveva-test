@@ -1,11 +1,11 @@
-:host {
-  position: fixed;
-  bottom: 30px;
-  left: 50%;
-  height: 48px;
-  transform: translateX(-50%);
-  z-index: 99;
-}
+// :host {
+//   position: fixed;
+//   bottom: 30px;
+//   left: 50%;
+//   height: 48px;
+//   transform: translateX(-50%);
+//   z-index: 99;
+// }
 
 .ui-paginator {
   display: flex;
@@ -14,7 +14,7 @@
   flex-wrap: nowrap;
   flex-direction: row;
 
-  background-color: #3c5896;
+  // background-color: #3c5896;
   opacity: 0.3;
   border-radius: 3px;
   min-width: 120px;
