@@ -1,11 +1,22 @@
 table {
   border-collapse: collapse;
+  border: none; 
 }
+thead{
+  border-radius: 10px 10px 0 0;
+  // border: 1px solid #e4e4e7;
+  outline: 1px solid #e4e4e7;
 
+}
+tbody{
+   border-radius: 0 0 10px 10px ;
+  //  border: 1px solid #e4e4e7;
+  outline: 1px solid #e4e4e7;
+}
 td,
 th {
-  border: 1px solid black;
-  padding: 30px 5px;
+  // border: 1px solid black;
+  padding: 10px 30px;
   margin: 0;
-  width: 300px;
+  // width: 300px;
 }
