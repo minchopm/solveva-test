@@ -38,27 +38,20 @@ export class DataController {
     const content = data.slice(startIndex, startIndex + pageSize);
     return { content, page, totalPages: data.length / pageSize };
   }
-  
-  @GET('/:id')
+
+  // This is how it is supposed to be but its not working and it is a known issue for Fastify
+  // link to issue -> https://forum.linuxfoundation.org/discussion/860721/lesson-9-route-validation-with-fastify
+  @GET('/:id', {
+    schema: {
+      params: datableSchema,
+      // response: { 200: dataSchema }
+    }
+  })
   async getDataById(request: FastifyRequest<{ Params: Datable }>): Promise<Array<Data>> {
     const { id } = request.params;
 
     await timeout(1_500);
-
-    return filterValue(data, 'id', +id);
-  }
-
-  // This is how it is supposed to be but its not working and it is a known issue for Fastify
-  // link to issue -> https://forum.linuxfoundation.org/discussion/860721/lesson-9-route-validation-with-fastify
-  // @GET('/:id', {
-  //   schema: {
-  //     params: datableSchema,
-  //     response: { 200: dataSchema }
-  //   }
-  // })
-  // async getDataById(request: FastifyRequest<{ Params: Datable }>): Promise<Data> {
-  //   const { id } = request.params;
     
-  //   return filterValue(data, 'id', +id) as Data;
-  // }
+    return filterValue(data, 'id', +id) as Array<Data>;
+  }
 }
