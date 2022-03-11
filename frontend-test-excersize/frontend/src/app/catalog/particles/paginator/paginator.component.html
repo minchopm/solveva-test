@@ -1,33 +1,38 @@
 <!-- <div class="ui-paginator">
-  <a
-    class="ui-paginator-element"
-    [ngClass]="{ 'ui-state-disabled': isFirstPage() }"
-    [attr.tabindex]="isFirstPage() ? '-1' : '0'"
-    (click)="changePageToPrev()"
-    (keydown.enter)="changePageToPrev()"
-  >
+  <a class="ui-paginator-element" [ngClass]="{ 'ui-state-disabled': isFirstPage() }"
+    [attr.tabindex]="isFirstPage() ? '-1' : '0'" (click)="changePageToPrev()" (keydown.enter)="changePageToPrev()">
     <span>⬅</span>
   </a>
 
   <span class="ui-paginator-pages">
-    <a
-      *ngFor="let pageLink of pageLinks"
-      tabindex="0"
-      class="ui-paginator-page ui-paginator-element"
-      [ngClass]="{ 'ui-state-active': pageLink - 1 === page }"
-      (click)="onPageLinkClick(pageLink - 1)"
-      (keydown.enter)="onPageLinkClick(pageLink - 1)"
-      >{{ pageLink }}</a
-    >
+    <a *ngFor="let pageLink of pageLinks" tabindex="0" class="ui-paginator-page ui-paginator-element"
+      [ngClass]="{ 'ui-state-active': pageLink - 1 === page }" (click)="onPageLinkClick(pageLink - 1)"
+      (keydown.enter)="onPageLinkClick(pageLink - 1)">{{ pageLink }}</a>
   </span>
 
-  <a
-    class="ui-paginator-element"
-    [ngClass]="{ 'ui-state-disabled': isLastPage() }"
-    [attr.tabindex]="isLastPage() ? '-1' : '0'"
-    (click)="changePageToNext()"
-    (keydown.enter)="changePageToNext()"
-  >
+  <a class="ui-paginator-element" [ngClass]="{ 'ui-state-disabled': isLastPage() }"
+    [attr.tabindex]="isLastPage() ? '-1' : '0'" (click)="changePageToNext()" (keydown.enter)="changePageToNext()">
     <span>➡</span>
   </a>
 </div> -->
+
+
+  <ul class="pagination ">
+    <li class="page-item">
+      <a class="page-link" [ngClass]="{ 'ui-state-disabled': isFirstPage() }"
+    [attr.tabindex]="isFirstPage() ? '-1' : '0'" (click)="changePageToPrev()" (keydown.enter)="changePageToPrev()" aria-label="Previous">
+        <span class="sr-only">Previous</span>
+      </a>
+    </li>
+    <li class="page-item"><a class="page-link" *ngFor="let pageLink of pageLinks" tabindex="0" class="ui-paginator-page ui-paginator-element"
+      [ngClass]="{ 'ui-state-active': pageLink - 1 === page }" (click)="onPageLinkClick(pageLink - 1)"
+      (keydown.enter)="onPageLinkClick(pageLink - 1)"></a></li>
+    
+    <li class="page-item">
+      <a class="page-link" [ngClass]="{ 'ui-state-disabled': isLastPage() }"
+    [attr.tabindex]="isLastPage() ? '-1' : '0'" (click)="changePageToNext()" (keydown.enter)="changePageToNext()" aria-label="Next">
+       
+        <span class="sr-only">Next</span>
+      </a>
+    </li>
+  </ul>

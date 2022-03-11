@@ -15,9 +15,9 @@ export class TableComponent implements OnInit {
   // public contentData: Content[] = [];
   public contentTable: Content[] = [];
   public data$ = this.store.select(selectData);
-  public collectionSize$ = this.store.select(selectTotalPages);
+  // public collectionSize$ =
   page = 0;
-  pageSize = 9;
+  pageSize$: Observable<number> = this.store.select(selectTotalPages);
 
   constructor(public contentProvider: ContentProvider, private store: Store) {}
 
@@ -29,6 +29,7 @@ export class TableComponent implements OnInit {
     console.log("event", event);
     this.store.dispatch(fetchPage(event));
   }
+
   // refreshContentData(event: { page: number }) {
   //   this.contentData = this.contentTable
   //     .map((country, i) => ({
