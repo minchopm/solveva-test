@@ -10,6 +10,10 @@ body{
     font-weight: 400;
 }
 
+// .bg-white{
+//     background: #ffffff;
+// }
+
 .bold{
     font-weight: bold;
 }
@@ -17,6 +21,15 @@ body{
     color: #000000;
 }
 
+// .w10{
+//     width: 10%!important;
+// }
+// .w20{
+//     width: 20%!important;
+// }
+// .w60{
+//     width: 60%!important;
+// }
 .mt40{
     margin-top: 40px;
 }
@@ -68,4 +81,51 @@ a[aria-label="Previous"]{
     left: 20px;
     border: 1px solid #d4d4d8;
     border-radius: 5px;
+}
+
+
+// .page-link:first-child:before {
+//   content: "Read this: ";
+// }
+
+// .page-link span:after:not(:first-child) {
+//   content: "";
+// }
+
+// .pagination li:first-child a::before{
+//     content: "Previous";
+//     justify-content: start;
+//     display: flex;
+    
+// }
+// .pagination li:first-child{
+//       position: absolute;
+//   left:20px;
+// }
+// .pagination li:last-child{
+//     position: absolute;
+//     right: 20px;
+// }
+// .pagination li:nth-child(2){
+//  position: relative;
+// outline: 1px solid orangered;
+// }
+// .pagination li:nth-last-child(2){
+//    margin-right:30%;
+// outline: 1px solid greenyellow;
+// }
+
+// .pagination li:last-child a::before{
+//     content: "Next";
+//     justify-content: end;
+//     display: flex;
+// }
+.test{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.pagination > li {
+  margin: 6px;
 }
