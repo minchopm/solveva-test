@@ -29,7 +29,6 @@ export class TableComponent implements OnInit {
     console.log("event", event);
     this.store.dispatch(fetchPage(event));
   }
-
   // refreshContentData(event: { page: number }) {
   //   this.contentData = this.contentTable
   //     .map((country, i) => ({
