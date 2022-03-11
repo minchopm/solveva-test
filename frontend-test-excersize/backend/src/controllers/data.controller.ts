@@ -20,7 +20,7 @@ const data = new Array(1_000_000).fill(null).map(
 );
 const pageSize = 10;
 
-const filterValue = (obj: any, key: string, value: any): Array<Data> => obj.filter((v: any) => v[key] === value);
+const findValue = (obj: any, key: string, value: any): Data => obj.find((v: any) => v[key] === value);
 
 @Controller("/data")
 export class DataController {
@@ -51,9 +51,9 @@ export class DataController {
 
     await timeout(1_500);
 
-    const foundData = filterValue(data, 'id', +id) as Array<Data>;
+    const foundData = findValue(data, 'id', +id);
 
-    return foundData.length > 0 ? foundData[0] : {} as Data;
+    return foundData || {} as Data;
   }
   
   @PUT('/:id', {
@@ -69,11 +69,12 @@ export class DataController {
 
     await timeout(1_500);
 
-    let foundData = filterValue(data, 'id', +id) as Array<Data>;
-    if(foundData.length > 0) {
-      foundData[0] = {...foundData[0], ...body};
-    }
+    let foundData = findValue(data, 'id', +id);
 
-    return foundData.length > 0 ? foundData[0] : {} as Data;
+    foundData['name'] = body.name;
+    foundData['value'] = body.value;
+    foundData['variant'] = body.variant;
+
+    return foundData || {} as Data;
   }
 }
