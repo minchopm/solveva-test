@@ -10,25 +10,13 @@ body{
     font-weight: 400;
 }
 
-// .bg-white{
-//     background: #ffffff;
-// }
-
 .bold{
     font-weight: bold;
 }
 .text-black{
     color: #000000;
 }
-// .w10{
-//     width: 10%!important;
-// }
-// .w20{
-//     width: 20%!important;
-// }
-// .w60{
-//     width: 60%!important;
-// }
+
 .mt40{
     margin-top: 40px;
 }
@@ -39,48 +27,10 @@ body{
     box-shadow: 0 2px 1px -1px #0003,0 1px 1px #00000024,0 1px 3px #0000001f;
 }
 
-
-// .page-link:first-child:before {
-//   content: "Read this: ";
-// }
-
-// .page-link span:after:not(:first-child) {
-//   content: "";
-// }
-
-// .pagination li:first-child a::before{
-//     content: "Previous";
-//     justify-content: start;
-//     display: flex;
-    
-// }
-// .pagination li:first-child{
-//       position: absolute;
-//   left:20px;
-// }
-// .pagination li:last-child{
-//     position: absolute;
-//     right: 20px;
-// }
-// .pagination li:nth-child(2){
-//  position: relative;
-// outline: 1px solid orangered;
-// }
-// .pagination li:nth-last-child(2){
-//    margin-right:30%;
-// outline: 1px solid greenyellow;
-// }
-
-// .pagination li:last-child a::before{
-//     content: "Next";
-//     justify-content: end;
-//     display: flex;
-// }
-.test{
-    // display: flex;
-    // justify-content: space-between;
+.pagination-container{
     display: block;
     width: 100%;
+    margin-top: 20px;
 }
 .pagination {
     display: flex;    
@@ -90,11 +40,6 @@ body{
 .pagination > li {
   margin: 6px;
 }
-// .active{
-//     border-top: 3px solid #6366f1;
-//     color: #6366f1;
-//     background: transparent;
-// }
 .page-item.active .page-link{
     color: #6366f1;
     background: transparent;
@@ -108,4 +53,16 @@ body{
 }
 .fix-red{
     outline: 1px solid red;
+}
+a[aria-label="Next"]{
+    position: absolute;
+    right: 20px;
+    border: 1px solid #d4d4d8;
+    border-radius: 5px;
+}
+a[aria-label="Previous"]{
+    position: absolute;
+    left: 20px;
+    border: 1px solid #d4d4d8;
+    border-radius: 5px;
 }
