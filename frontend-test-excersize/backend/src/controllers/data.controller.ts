@@ -55,6 +55,7 @@ export class DataController {
 
     return foundData.length > 0 ? foundData[0] : {} as Data;
   }
+  
   @PUT('/:id', {
     schema: {
       params: datableSchema,
