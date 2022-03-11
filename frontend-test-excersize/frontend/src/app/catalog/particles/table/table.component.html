@@ -41,6 +41,20 @@
 
 <div class="flex-gap">
   <ngb-pagination class="test flex-gap" [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"
-    (pageChange)="refreshContentData()">
+    (pageChange)="refreshContentData()" 
+     [maxSize]="5" [rotate]="true" [ellipses]="true" [boundaryLinks]="false">
+    <ng-template ngbPaginationPrevious class="fix-red">Prev</ng-template>
+    <ng-template ngbPaginationNext class="fix-red">Next</ng-template>
+    <ng-template ngbPaginationEllipsis>...</ng-template>
+    <ng-template ngbPaginationNumber let-page>{{ page }}</ng-template>
   </ngb-pagination>
 </div>
+
+<!-- <ngb-pagination>
+  <ng-template ngbPaginationFirst>First</ng-template>
+  <ng-template ngbPaginationLast>Last</ng-template>
+  <ng-template ngbPaginationPrevious>Prev</ng-template>
+  <ng-template ngbPaginationNext>Next</ng-template>
+  <ng-template ngbPaginationEllipsis>...</ng-template>
+  <ng-template ngbPaginationNumber let-page>{{ page }}</ng-template>
+</ngb-pagination> -->

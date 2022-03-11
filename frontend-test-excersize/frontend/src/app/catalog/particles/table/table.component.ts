@@ -90,6 +90,346 @@ export class TableComponent implements OnInit {
       name: "Data 4",
       value: "Value 4",
     },
+    {
+      id: 3,
+      name: "Data 3",
+      value: "Value 3",
+    },
+    {
+      id: 4,
+      name: "Data 4",
+      value: "Value 4",
+    },
+    {
+      id: 3,
+      name: "Data 3",
+      value: "Value 3",
+    },
+    {
+      id: 4,
+      name: "Data 4",
+      value: "Value 4",
+    },
+    {
+      id: 3,
+      name: "Data 3",
+      value: "Value 3",
+    },
+    {
+      id: 4,
+      name: "Data 4",
+      value: "Value 4",
+    },
+    {
+      id: 3,
+      name: "Data 3",
+      value: "Value 3",
+    },
+    {
+      id: 4,
+      name: "Data 4",
+      value: "Value 4",
+    },
+    {
+      id: 3,
+      name: "Data 3",
+      value: "Value 3",
+    },
+    {
+      id: 4,
+      name: "Data 4",
+      value: "Value 4",
+    },
+    {
+      id: 3,
+      name: "Data 3",
+      value: "Value 3",
+    },
+    {
+      id: 4,
+      name: "Data 4",
+      value: "Value 4",
+    },
+    {
+      id: 3,
+      name: "Data 3",
+      value: "Value 3",
+    },
+    {
+      id: 4,
+      name: "Data 4",
+      value: "Value 4",
+    },
+    {
+      id: 3,
+      name: "Data 3",
+      value: "Value 3",
+    },
+    {
+      id: 4,
+      name: "Data 4",
+      value: "Value 4",
+    },
+    {
+      id: 3,
+      name: "Data 3",
+      value: "Value 3",
+    },
+    {
+      id: 4,
+      name: "Data 4",
+      value: "Value 4",
+    },
+    {
+      id: 3,
+      name: "Data 3",
+      value: "Value 3",
+    },
+    {
+      id: 4,
+      name: "Data 4",
+      value: "Value 4",
+    },
+    {
+      id: 3,
+      name: "Data 3",
+      value: "Value 3",
+    },
+    {
+      id: 4,
+      name: "Data 4",
+      value: "Value 4",
+    },
+    {
+      id: 3,
+      name: "Data 3",
+      value: "Value 3",
+    },
+    {
+      id: 4,
+      name: "Data 4",
+      value: "Value 4",
+    },
+    {
+      id: 3,
+      name: "Data 3",
+      value: "Value 3",
+    },
+    {
+      id: 4,
+      name: "Data 4",
+      value: "Value 4",
+    },
+    {
+      id: 3,
+      name: "Data 3",
+      value: "Value 3",
+    },
+    {
+      id: 4,
+      name: "Data 4",
+      value: "Value 4",
+    },
+    {
+      id: 3,
+      name: "Data 3",
+      value: "Value 3",
+    },
+    {
+      id: 4,
+      name: "Data 4",
+      value: "Value 4",
+    },
+    {
+      id: 3,
+      name: "Data 3",
+      value: "Value 3",
+    },
+    {
+      id: 4,
+      name: "Data 4",
+      value: "Value 4",
+    },
+    {
+      id: 3,
+      name: "Data 3",
+      value: "Value 3",
+    },
+    {
+      id: 4,
+      name: "Data 4",
+      value: "Value 4",
+    },
+    {
+      id: 3,
+      name: "Data 3",
+      value: "Value 3",
+    },
+    {
+      id: 4,
+      name: "Data 4",
+      value: "Value 4",
+    },
+    {
+      id: 3,
+      name: "Data 3",
+      value: "Value 3",
+    },
+    {
+      id: 4,
+      name: "Data 4",
+      value: "Value 4",
+    },
+    {
+      id: 3,
+      name: "Data 3",
+      value: "Value 3",
+    },
+    {
+      id: 4,
+      name: "Data 4",
+      value: "Value 4",
+    },
+    {
+      id: 3,
+      name: "Data 3",
+      value: "Value 3",
+    },
+    {
+      id: 4,
+      name: "Data 4",
+      value: "Value 4",
+    },
+    {
+      id: 3,
+      name: "Data 3",
+      value: "Value 3",
+    },
+    {
+      id: 4,
+      name: "Data 4",
+      value: "Value 4",
+    },
+    {
+      id: 3,
+      name: "Data 3",
+      value: "Value 3",
+    },
+    {
+      id: 4,
+      name: "Data 4",
+      value: "Value 4",
+    },
+    {
+      id: 3,
+      name: "Data 3",
+      value: "Value 3",
+    },
+    {
+      id: 4,
+      name: "Data 4",
+      value: "Value 4",
+    },
+    {
+      id: 3,
+      name: "Data 3",
+      value: "Value 3",
+    },
+    {
+      id: 4,
+      name: "Data 4",
+      value: "Value 4",
+    },
+    {
+      id: 3,
+      name: "Data 3",
+      value: "Value 3",
+    },
+    {
+      id: 4,
+      name: "Data 4",
+      value: "Value 4",
+    },
+    {
+      id: 3,
+      name: "Data 3",
+      value: "Value 3",
+    },
+    {
+      id: 4,
+      name: "Data 4",
+      value: "Value 4",
+    },
+    {
+      id: 3,
+      name: "Data 3",
+      value: "Value 3",
+    },
+    {
+      id: 4,
+      name: "Data 4",
+      value: "Value 4",
+    },
+    {
+      id: 3,
+      name: "Data 3",
+      value: "Value 3",
+    },
+    {
+      id: 4,
+      name: "Data 4",
+      value: "Value 4",
+    },
+    {
+      id: 3,
+      name: "Data 3",
+      value: "Value 3",
+    },
+    {
+      id: 4,
+      name: "Data 4",
+      value: "Value 4",
+    },
+    {
+      id: 3,
+      name: "Data 3",
+      value: "Value 3",
+    },
+    {
+      id: 4,
+      name: "Data 4",
+      value: "Value 4",
+    },
+    {
+      id: 3,
+      name: "Data 3",
+      value: "Value 3",
+    },
+    {
+      id: 4,
+      name: "Data 4",
+      value: "Value 4",
+    },
+    {
+      id: 3,
+      name: "Data 3",
+      value: "Value 3",
+    },
+    {
+      id: 4,
+      name: "Data 4",
+      value: "Value 4",
+    },
+    {
+      id: 3,
+      name: "Data 3",
+      value: "Value 3",
+    },
+    {
+      id: 4,
+      name: "Data 4",
+      value: "Value 4",
+    },
   ];
 
   page = 1;
