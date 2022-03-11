@@ -1,4 +1,4 @@
-import { Controller, GET } from "fastify-decorators";
+import { Controller, GET, PUT } from "fastify-decorators";
 import { FastifyRequest } from "fastify";
 import { Pageable, pageableSchema } from "../models/pageable";
 import { Page, pageSchema } from "../models/page";
@@ -15,6 +15,7 @@ const data = new Array(1_000_000).fill(null).map(
       id: index + 1,
       name: `Data ${index}`,
       value: `Value ${index}`,
+      variant: 1
     } as Data)
 );
 const pageSize = 10;
@@ -51,6 +52,27 @@ export class DataController {
     await timeout(1_500);
 
     const foundData = filterValue(data, 'id', +id) as Array<Data>;
+
+    return foundData.length > 0 ? foundData[0] : {} as Data;
+  }
+  
+  @PUT('/:id', {
+    schema: {
+      params: datableSchema,
+      body: dataSchema,
+      response: { 200: dataSchema }
+    }
+  })
+  async saveData(request: FastifyRequest<{ Params: Datable }>): Promise<Data> {
+    const { id } = request.params;
+    const body = request.body as Data;
+
+    await timeout(1_500);
+
+    let foundData = filterValue(data, 'id', +id) as Array<Data>;
+    if(foundData.length > 0) {
+      foundData[0] = {...foundData[0], ...body};
+    }
 
     return foundData.length > 0 ? foundData[0] : {} as Data;
   }
