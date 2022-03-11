@@ -37,7 +37,7 @@
           {{ data.name }}
         </td>
         <td>{{ data.value }}</td>
-        <td><button type="button" class="btn btn-link">Go to details</button></td>
+        <td><button type="button" class="btn btn-link" (click)="redirect(data.id)">Go to details</button></td>
       </tr>
     </tbody>
   </table>

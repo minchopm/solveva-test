@@ -15,4 +15,10 @@ export class ContentProvider {
     return  this.http.get("/data",  {params} )as Observable<Page> ;
   }
 
+  getElement(param: number){
+    // const params = new HttpParams().set("page", page);
+
+    return  this.http.get(`/data/${param}`)as Observable<Page> ;
+  }
+
 }
