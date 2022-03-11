@@ -16,7 +16,7 @@ export const selectTotalPages = createSelector(
   selectCatalog,
   (state) => state.totalPages
 );
-export const selectCurrmetElement = createSelector(
+export const selectCurrentElement = createSelector(
   selectElement,
   (state) => state
 );
