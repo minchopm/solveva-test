@@ -2,8 +2,7 @@ import { Controller, GET, PUT } from "fastify-decorators";
 import { FastifyRequest } from "fastify";
 import { Pageable, pageableSchema } from "../models/pageable";
 import { Page, pageSchema } from "../models/page";
-import { Data, dataSchema } from "../models/data";
-import { Static, Type } from "@sinclair/typebox";
+import { ChangeData, changeDataSchema, Data, dataSchema } from "../models/data";
 import { Datable, datableSchema } from "../models/datable";
 
 
@@ -59,13 +58,13 @@ export class DataController {
   @PUT('/:id', {
     schema: {
       params: datableSchema,
-      body: dataSchema,
+      body: changeDataSchema,
       response: { 200: dataSchema }
     }
   })
   async saveData(request: FastifyRequest<{ Params: Datable }>): Promise<Data> {
     const { id } = request.params;
-    const body = request.body as Data;
+    const body = request.body as ChangeData;
 
     await timeout(1_500);
 
