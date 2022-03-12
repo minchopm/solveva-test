@@ -10,7 +10,7 @@ import { CatalogComponent } from "./catalog/catalog.component";
 import { EffectsModule } from "@ngrx/effects";
 import { CatalogModule } from "./catalog/catalog.module";
 import { DetailsModule } from "./details/details.module";
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { CoreModule } from "./core/core.module";
 import { BasicInfoComponent } from './basic-info/basic-info.component';

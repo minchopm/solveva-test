@@ -14,11 +14,12 @@
   flex-wrap: nowrap;
   flex-direction: row;
 
+
   // background-color: #3c5896;
-  opacity: 0.3;
-  border-radius: 3px;
+  // opacity: 0.3;
+  // border-radius: 3px;
   min-width: 120px;
-  transition: opacity 0.3s;
+  // transition: opacity 0.3s;
   padding: 10px 15px;
 
   &:hover {
@@ -27,7 +28,8 @@
 
   &-element {
     display: inline-block;
-    color: #fff;
+    // color: #fff;
+      color: #797982;
     cursor: pointer;
     padding: 2px 6px;
   }
@@ -50,7 +52,10 @@
     &-active {
       cursor: default;
       pointer-events: none;
-      background-color: #779bd3;
+      // background-color: #779bd3;
+      border-top: 3px solid #6366f1;
+   color: #6366f1;
+
     }
 
     &-disabled {
