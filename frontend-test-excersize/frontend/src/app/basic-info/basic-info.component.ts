@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { Store } from '@ngrx/store';
-import { fetchElement, fetchPage } from '../catalog/state/catalog.actions';
-// import { selectCurrmetElement } from '../catalog/state/selectors';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Store} from '@ngrx/store';
+import {fetchElement} from '../catalog/state/catalog.actions';
+import {selectCurrentElement} from "../catalog/state/selectors";
 
 @Component({
   selector: 'app-basic-info',
@@ -10,12 +10,14 @@ import { fetchElement, fetchPage } from '../catalog/state/catalog.actions';
   styleUrls: ['./basic-info.component.scss']
 })
 export class BasicInfoComponent implements OnInit {
+  public data$ = this.store.select(selectCurrentElement);
 
-  constructor(private store: Store, public router: ActivatedRoute) { }
+  constructor(private store: Store, public router: ActivatedRoute) {
+  }
 
-  ngOnInit(): void { 
-    this.router.params.subscribe((res)=>{
-      this.store.dispatch(fetchElement({id:res.id}));
-    })
+  ngOnInit(): void {
+    this.router.params.subscribe((res) => {
+      this.store.dispatch(fetchElement({id: res.id}));
+    });
   }
 }

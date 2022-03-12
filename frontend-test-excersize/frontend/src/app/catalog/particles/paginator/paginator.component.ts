@@ -61,7 +61,6 @@ export class PaginatorComponent {
   private changePage(page: number): void {
     if (page >= 0 && page < this.pagesCount) {
       this.ngOnChanges();
-
       this.onPageChange.emit({ page });
     }
   }

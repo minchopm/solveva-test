@@ -1,6 +1,6 @@
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import {
-  fetchElement,
+  fetchElement, fetchElementFailed, fetchElementSucceeded,
   fetchPage,
   fetchPageFailed,
   fetchPageSucceeded,
@@ -20,13 +20,13 @@ export class CatalogEffects {
       catchError((error: Error) => of(fetchPageFailed({ error })))
     )
   );
-  
+
   public fetchElement$ = createEffect(() =>
     this.actions.pipe(
       ofType(fetchElement),
       concatMap((param)=>this.provider.getElement(param.id)),
-      map((data) => fetchPageSucceeded(data)),
-      catchError((error: Error) => of(fetchPageFailed({ error })))
+      map((data) => fetchElementSucceeded(data)),
+      catchError((error: Error) => of(fetchElementFailed({ error })))
     )
 );
 

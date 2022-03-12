@@ -33,8 +33,6 @@ const initialElementState: ElementState = { id: 0, name: '', value: '', variant:
 export const elementReducer = createReducer<ElementState>(
   initialElementState,
   on(fetchElement, (state, action) =>  {
-    console.log('state',state);
-    console.log('action',action);
     return{
     ...state,
     id: action.id
