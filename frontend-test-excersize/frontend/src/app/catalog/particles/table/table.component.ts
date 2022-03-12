@@ -19,7 +19,20 @@ export class TableComponent implements OnInit {
 
   constructor(private store: Store, public router: Router) {}
 
+  constructor() {
+    this.refreshContentData();
+  }
   ngOnInit(): void {}
+//   refreshContentData() {
+//     this.contentData = this.contentTable
+//       .map((country, i) => ({
+//         // id: i + 1,
+//         ...country,
+//       }))
+//       .slice(
+//         (this.page - 1) * this.pageSize,
+//         (this.page - 1) * this.pageSize + this.pageSize
+//       );
 
   fetchPage(event: { page: number }) { 
     this.page = event.page;
@@ -29,6 +42,5 @@ export class TableComponent implements OnInit {
   }
   redirect(id:number){
     this.router.navigateByUrl(`/details/${id}`);
-    
   }
 }

@@ -24,7 +24,7 @@ import { CatalogInfoComponent } from './basic-info/catalog-info/catalog-info.com
 
     RouterModule.forRoot([
       { path: "catalog", component: CatalogComponent },
-      { path: "details/:id", component: BasicInfoComponent },
+      { path: "details/:id", component: DetailsComponent },
       { path: "basic", component: BasicInfoComponent },
       { path: "**", redirectTo: "/catalog" },
     ]),

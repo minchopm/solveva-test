@@ -10,6 +10,7 @@ import { fetchElement, fetchPage } from '../catalog/state/catalog.actions';
   styleUrls: ['./basic-info.component.scss']
 })
 export class BasicInfoComponent implements OnInit {
+
   constructor(private store: Store, public router: ActivatedRoute) { }
 
   ngOnInit(): void { 
@@ -17,5 +18,4 @@ export class BasicInfoComponent implements OnInit {
       this.store.dispatch(fetchElement({id:res.id}));
     })
   }
-
 }
