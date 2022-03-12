@@ -13,3 +13,7 @@ export const fetchPageFailed = createAction(
   "[Data] Fetch page succeeded",
   props<{ error: Error }>()
 );
+export const fetchElement = createAction(
+  "[Data] Fetch element succeeded",
+  props<{ id: number }>()
+);

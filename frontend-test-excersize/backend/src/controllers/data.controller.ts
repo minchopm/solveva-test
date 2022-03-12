@@ -1,9 +1,8 @@
-import { Controller, GET } from "fastify-decorators";
+import { Controller, GET, PUT } from "fastify-decorators";
 import { FastifyRequest } from "fastify";
 import { Pageable, pageableSchema } from "../models/pageable";
 import { Page, pageSchema } from "../models/page";
-import { Data, dataSchema } from "../models/data";
-import { Static, Type } from "@sinclair/typebox";
+import { ChangeData, changeDataSchema, Data, dataSchema } from "../models/data";
 import { Datable, datableSchema } from "../models/datable";
 
 
@@ -15,11 +14,12 @@ const data = new Array(1_000_000).fill(null).map(
       id: index + 1,
       name: `Data ${index}`,
       value: `Value ${index}`,
+      variant: 1
     } as Data)
 );
 const pageSize = 10;
 
-const filterValue = (obj: any, key: string, value: any): Array<Data> => obj.filter((v: any) => v[key] === value);
+const findValue = (obj: any, key: string, value: any): Data => obj.find((v: any) => v[key] === value);
 
 @Controller("/data")
 export class DataController {
@@ -38,27 +38,42 @@ export class DataController {
     const content = data.slice(startIndex, startIndex + pageSize);
     return { content, page, totalPages: data.length / pageSize };
   }
-  
-  @GET('/:id')
-  async getDataById(request: FastifyRequest<{ Params: Datable }>): Promise<Array<Data>> {
+
+  @GET('/:id', {
+    schema: {
+      params: datableSchema,
+      response: { 200: dataSchema }
+    }
+  })
+  async getDataById(request: FastifyRequest<{ Params: Datable }>): Promise<Data> {
     const { id } = request.params;
 
     await timeout(1_500);
 
-    return filterValue(data, 'id', +id);
-  }
+    const foundData = findValue(data, 'id', +id);
 
-  // This is how it is supposed to be but its not working and it is a known issue for Fastify
-  // link to issue -> https://forum.linuxfoundation.org/discussion/860721/lesson-9-route-validation-with-fastify
-  // @GET('/:id', {
-  //   schema: {
-  //     params: datableSchema,
-  //     response: { 200: dataSchema }
-  //   }
-  // })
-  // async getDataById(request: FastifyRequest<{ Params: Datable }>): Promise<Data> {
-  //   const { id } = request.params;
-    
-  //   return filterValue(data, 'id', +id) as Data;
-  // }
+    return foundData || {} as Data;
+  }
+  
+  @PUT('/:id', {
+    schema: {
+      params: datableSchema,
+      body: changeDataSchema,
+      response: { 200: dataSchema }
+    }
+  })
+  async saveData(request: FastifyRequest<{ Params: Datable }>): Promise<Data> {
+    const { id } = request.params;
+    const body = request.body as ChangeData;
+
+    await timeout(1_500);
+
+    let foundData = findValue(data, 'id', +id);
+
+    foundData['name'] = body.name;
+    foundData['value'] = body.value;
+    foundData['variant'] = body.variant;
+
+    return foundData || {} as Data;
+  }
 }

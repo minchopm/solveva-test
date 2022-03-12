@@ -14,9 +14,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { CoreModule } from "./core/core.module";
 import { BasicInfoComponent } from './basic-info/basic-info.component';
+import { CatalogInfoComponent } from './basic-info/catalog-info/catalog-info.component';
 
 @NgModule({
-  declarations: [AppComponent, BasicInfoComponent],
+  declarations: [AppComponent, BasicInfoComponent, CatalogInfoComponent],
   imports: [
     BrowserModule,
     HttpClientModule,

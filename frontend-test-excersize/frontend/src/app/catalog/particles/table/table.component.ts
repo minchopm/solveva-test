@@ -1,5 +1,10 @@
 import { Component, Input, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
+import { Store } from "@ngrx/store";
+import { Observable } from "rxjs";
 import { Content } from "../../interfaces/content";
+import { fetchElement, fetchPage } from "../../state/catalog.actions";
+import { selectData, selectTotalPages } from "../../state/selectors";
 
 @Component({
   selector: "app-table",
@@ -7,108 +12,35 @@ import { Content } from "../../interfaces/content";
   styleUrls: ["./table.component.scss"],
 })
 export class TableComponent implements OnInit {
-  //@Input() content: Content[] = [];
-  public contentData: Content[] = [];
-  public contentTable: Content[] = [
-    {
-      id: 1,
-      name: "Data 1",
-      value: "Value 1",
-    },
-    {
-      id: 2,
-      name: "Data 2",
-      value: "Value 2",
-    },
-    {
-      id: 3,
-      name: "Data 3",
-      value: "Value 3",
-    },
-    {
-      id: 4,
-      name: "Data 4",
-      value: "Value 4",
-    },
-    {
-      id: 1,
-      name: "Data 1",
-      value: "Value 1",
-    },
-    {
-      id: 2,
-      name: "Data 2",
-      value: "Value 2",
-    },
-    {
-      id: 3,
-      name: "Data 3",
-      value: "Value 3",
-    },
-    {
-      id: 4,
-      name: "Data 4",
-      value: "Value 4",
-    },
-    {
-      id: 1,
-      name: "Data 1",
-      value: "Value 1",
-    },
-    {
-      id: 2,
-      name: "Data 2",
-      value: "Value 2",
-    },
-    {
-      id: 3,
-      name: "Data 3",
-      value: "Value 3",
-    },
-    {
-      id: 4,
-      name: "Data 4",
-      value: "Value 4",
-    },
-    {
-      id: 1,
-      name: "Data 1",
-      value: "Value 1",
-    },
-    {
-      id: 2,
-      name: "Data 2",
-      value: "Value 2",
-    },
-    {
-      id: 3,
-      name: "Data 3",
-      value: "Value 3",
-    },
-    {
-      id: 4,
-      name: "Data 4",
-      value: "Value 4",
-    },
-  ];
+  public contentTable: Content[] = []
+  public data$ = this.store.select(selectData);
+  page = 0;
+  pageSize$: Observable<number> = this.store.select(selectTotalPages);
 
-  page = 1;
-  pageSize = 5;
-  collectionSize = this.contentTable.length;
+  constructor(private store: Store, public router: Router) {}
 
   constructor() {
     this.refreshContentData();
   }
   ngOnInit(): void {}
-  refreshContentData() {
-    this.contentData = this.contentTable
-      .map((country, i) => ({
-        // id: i + 1,
-        ...country,
-      }))
-      .slice(
-        (this.page - 1) * this.pageSize,
-        (this.page - 1) * this.pageSize + this.pageSize
-      );
+//   refreshContentData() {
+//     this.contentData = this.contentTable
+//       .map((country, i) => ({
+//         // id: i + 1,
+//         ...country,
+//       }))
+//       .slice(
+//         (this.page - 1) * this.pageSize,
+//         (this.page - 1) * this.pageSize + this.pageSize
+//       );
+
+  fetchPage(event: { page: number }) { 
+    this.page = event.page;
+    event.page = event.page+1;
+    this.store.dispatch(fetchPage(event));
+    
+  }
+  redirect(id:number){
+    this.router.navigateByUrl(`/details/${id}`);
   }
 }
