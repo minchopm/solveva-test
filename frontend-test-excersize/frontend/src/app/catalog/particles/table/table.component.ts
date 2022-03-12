@@ -1,9 +1,9 @@
 import { Component, Input, OnInit } from "@angular/core";
-import { createSelector, select, Store } from "@ngrx/store";
+import { Router } from "@angular/router";
+import { Store } from "@ngrx/store";
 import { Observable } from "rxjs";
 import { Content } from "../../interfaces/content";
-import { ContentProvider } from "../../providers/content.provider";
-import { fetchPage } from "../../state/catalog.actions";
+import { fetchElement, fetchPage } from "../../state/catalog.actions";
 import { selectData, selectTotalPages } from "../../state/selectors";
 
 @Component({
@@ -12,22 +12,34 @@ import { selectData, selectTotalPages } from "../../state/selectors";
   styleUrls: ["./table.component.scss"],
 })
 export class TableComponent implements OnInit {
-  // public contentData: Content[] = [];
-  public contentTable: Content[] = [];
+  public contentTable: Content[] = []
   public data$ = this.store.select(selectData);
-  // public collectionSize$ =
   page = 0;
   pageSize$: Observable<number> = this.store.select(selectTotalPages);
 
-  constructor(public contentProvider: ContentProvider, private store: Store) {}
+  constructor(private store: Store, public router: Router) {}
 
   ngOnInit(): void {}
 
-  fetchPage(event: { page: number }) {
+//   refreshContentData() {
+//     this.contentData = this.contentTable
+//       .map((country, i) => ({
+//         // id: i + 1,
+//         ...country,
+//       }))
+//       .slice(
+//         (this.page - 1) * this.pageSize,
+//         (this.page - 1) * this.pageSize + this.pageSize
+//       );
+
+  fetchPage(event: { page: number }) { 
     this.page = event.page;
-    event.page = event.page + 1;
-    console.log("event", event);
+    event.page = event.page+1;
     this.store.dispatch(fetchPage(event));
+    
+  }
+  redirect(id:number){
+    this.router.navigateByUrl(`/details/${id}`);
   }
 
   // refreshContentData(event: { page: number }) {

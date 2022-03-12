@@ -9,9 +9,16 @@ import { Page } from "../interfaces/page";
 export class ContentProvider {
   constructor(private http: HttpClient) {}
 
-  getData(page: number): Observable<Page> {
+  getData(page: number){
     const params = new HttpParams().set("page", page);
 
-    return this.http.get("/api/data", { params }) as Observable<Page>;
+    return  this.http.get("/data",  {params} )as Observable<Page> ;
   }
+
+  getElement(param: number){
+    // const params = new HttpParams().set("page", page);
+
+    return  this.http.get(`/data/${param}`)as Observable<Page> ;
+  }
+
 }
